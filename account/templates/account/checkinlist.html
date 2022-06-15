@@ -1,0 +1,77 @@
+{% extends "home/index.html" %}
+
+
+	{% block body %}
+	<!--/banner-->
+	<div class="banner-inner">
+	</div>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">Home</a>
+		</li>
+		<li class="breadcrumb-item active">Checkinlist</li>
+	</ol>
+	<!--//banner-->
+
+	<!--/main-->
+	<section class="main-content-w3layouts-agileits">
+		<div class="container">
+			<h3 class="tittle">List Of Checked In Customers</h3>
+			<div class="inner-sec">
+				<!--left-->
+				
+				<div class="left-blog-info-w3layouts-agileits text-left">
+					<div class="row">
+						{% for check in checked %}
+						<div class="col-lg-4 card my-lg-4 my-md-1 my-0">
+							<a href="single.html">
+								<img src="images/7.jpg" class="card-img-top img-fluid" alt="">
+							</a>
+							<table border="3px" style="margin: 10px;">
+								<th>Customer Details</th>
+								<tr>
+									<td>Occupant Name: {{check.name}}</td></tr>
+			
+									<td>Occupant Email: {{check.email}}</td></tr>
+									<td>Occupation: {{check.occupation}}</td></tr>
+									<td>Room Cheked: {{check.room}}</td></tr>
+									<td>Price: {{check.amount}}</td></tr>
+									<td>Start Date: {{check.start_date}}</td></tr>
+									<td>End Date: {{check.end_date}}</td></tr>
+									<td>Nights: {{check.night}}</td></tr>
+									<td>Staff on Duty: {{check.staff}}</td></tr>
+									<td>Time Checked In: {{check.time_checkedin}}</td>
+									
+								</tr>
+							</table>
+						</div>
+						{% endfor %}
+						
+						
+					</div>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-left mt-4">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1">Previous</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">1</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">3</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">Next</a>
+							</li>
+						</ul>
+					</nav>
+					<!--//left-->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--//main-->
+	{% endblock body %}

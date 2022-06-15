@@ -1,0 +1,59 @@
+{% extends "home/index.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+    
+<div class="container" style="margin: 50px;">
+    <table border="3">
+        <tr>
+            <form action="{% url 'account:checkinview' %}" method="post">
+                {% csrf_token  %}
+                
+                <div>
+                    <th>Fill Form to CheckIn Customers</th></tr>
+                    <td><label title="room"> Room Number: </label>
+                    <select id="room" name="room">
+                        <option value="room 1"> Room 1</option>
+                        <option value="room 2"> Room 2</option>
+                        <option value="room 3"> Room 3</option>
+                        <option value="room 4"> Room 4</option>
+                        <option value="room 5"> Room 5</option>
+                    </select></td></tr>
+                    <td><label title="amount"> price: </label>
+                    <select id="amount" name="amount">
+                        <option value="#5000"> Room 1 = #5000</option>
+                        <option value="#7000"> Room 2 = #7000</option>
+                        <option value="#7000"> Room 3 = #7000</option>
+                        <option value="#5000"> Room 4 = #5000</option>
+                        <option value="#5000"> Room 5 = #5000</option>
+                    </select></td></tr>
+                </div>
+                <div>
+                    <td><label title="name"> Occupant Name: </label>
+                    <input type="text" id="occupant_name" name="name" required></td></tr>
+                    <td><label title="email"> Occupant Email: </label>
+                    <input type="email" id="email" name="email" required> </td></tr>
+                </div>
+                <div>
+                    <td><label title="occupation"> Occupant Occupation: </label>
+                    <input type="text" id="occupation" name="occupation" required></td></tr>
+                    <td><label title="night"> Number of Nights: </label>
+                    <input type="number" id="night" name="night" required></td></tr>
+                </div>
+                <div>
+                    <td><label title="start_date"> Start Date: </label>
+                    <input type="date" id="start_date" name="start_date" required></td></tr>
+                    <td><label title="end"> End Date: </label>
+                    <input type="date" id="end_date" name="end_date" required></td></tr> 
+
+                </div>
+                <div>
+                    <td><button type="submit"> Checkin</button></td></tr>
+                </div>
+            </form>
+        </tr>    
+    </table>
+
+
+</div>
+
+{% endblock body %}

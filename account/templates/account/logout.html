@@ -1,0 +1,13 @@
+{% extends "home/index.html" %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+<div class="container" style="margin: 40px;">
+    <div>
+        <p>You have successfully Logout, Click the link below 
+        To Login again</p>
+        <div><a href="{% url 'account:loginview' %}"> Login</a></div>
+    </div>
+
+</div>
+{% endblock body%}
