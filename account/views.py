@@ -31,7 +31,7 @@ def checkin(request):
     return render(request, "account/checkin.html")
 
 def checkinlist(request):
-    checked = Checkin.objects.all()
+    checked = Checkin.objects.all().order_by("-time_checkedin")
     context= {
         "checked":checked
     }

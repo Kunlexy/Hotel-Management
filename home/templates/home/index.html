@@ -79,10 +79,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-8 header-address wow bounceInRight" data-wow-delay="0.3s">
 				<ul>
 					<li><span class="phone"> </span> <h6>(220) 280-31589</h6></li>
-					<li><span class="email"> </span><h6><a href="mailto:info@example.com">Youremail@gmail.com</a></h6></li>
+					<li><span class="email"> </span><h6><a href="mailto:info@olakunlehotels.com">info@olakunlehotels.com</a></h6></li>
 					{% if user.is_authenticated %}
-						<li><a href="{% url 'account:checkinview' %}" data-hover="Checkin Customer">Checkin Customer</a></li>
-						<li><a href="{% url 'account:checkedview' %}" data-hover="Customers Details">Customers Details</a></li>
+						<li><a href="{% url 'account:checkedview' %}" data-hover="Customer Records">Customer Records</a></li>
 						<li><a href="{% url 'account:logoutview' %}" data-hover="Logout">Logout</a></li>
 
 						{% else %}	
@@ -120,9 +119,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		            <div id="navbar" class="navbar-collapse collapse">
 		            <nav class="cl-effect-16" id="cl-effect-16">
 		              <ul class="nav navbar-nav">
-		               <li><a class="active" href="{% url 'home:homeview' %}" data-hover="Home">Home</a></li>
-						<li><a href="#" data-hover="About">About</a></li>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'account:checkinview' %}" data-hover="Checkin Customers">Checkin Customers</a></li>
+						<li><a class="active" href="{% url 'home:homeview' %}" data-hover="Home">Home</a></li>
+						<li><a href="{% url 'home:aboutview' %}" data-hover="About">About</a></li>
 						<li><a href="{% url 'home:contactview' %}" data-hover="Contact">Contact</a></li>
+						{% else %}	
+						<li><a class="active" href="{% url 'home:homeview' %}" data-hover="Home">Home</a></li>
+						<li><a href="{% url 'home:aboutview' %}" data-hover="About">About</a></li>
+						<li><a href="{% url 'home:contactview' %}" data-hover="Contact">Contact</a></li>
+						
+						{% endif %}
+		               
 									
 		              </ul>
 		            </nav>
@@ -230,7 +238,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h1>You Never Leave Us</h1>
 			<h6>100% Friendly services</h6>
 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown.</p>
-		   <a href="single.html" class="hvr-push">Discover More</a>
+		   <a href="#" class="hvr-push">Discover More</a>
 		</div>
 	</div>
 </div>
@@ -442,11 +450,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 ftr-grid ftr-last-gd ftr-rit wow zoomIn" data-wow-delay="0.3s">
 				 <h3>Quick Link</h3>
 				  <ul class="ftr-nav">
-				 	<li><a href="index.html">Home</a></li>
-				 	<li><a href="about.html">About</a></li>
-				 	<li><a href="services.html">Services </a></li>
-				 	<li><a href="room.html">Rooms</a></li>
-				 	<li><a href="contact.html">Contact</a></li>
+				 	<li><a href="{% url 'home:homeview' %}">Home</a></li>
+				 	<li><a href="{% url 'home:aboutview' %}">About</a></li>
+				 	<li><a href="{% url 'home:contactview' %}">Contact</a></li>
 				 </ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -458,7 +464,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="copy-right">
 	<div class="container">
 		 <div class="copy-rights-main wow zoomIn" data-wow-delay="0.3s">
-    	    <p>© 2016 Mr Hotel. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+    	    <p>© 2022 Olakunlehotels. All Rights Reserved | Design by  <a href="{% url 'home:homeview' %}" target="_blank">Olakunlehotels.com</a> </p>
     	 </div>
     </div>
 </div>
