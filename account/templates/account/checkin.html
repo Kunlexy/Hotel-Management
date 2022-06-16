@@ -6,6 +6,7 @@
     <table border="3">
         <tr>
             <form action="{% url 'account:checkinview' %}" method="post">
+                {{crispy}}
                 {% csrf_token  %}
                 
                 <div>
@@ -47,7 +48,7 @@
 
                 </div>
                 <div>
-                    <td><button type="submit"> Checkin</button></td></tr>
+                    <td><button type="submit" class="btn btn-success"> Checkin</button></td></tr>
                 </div>
             </form>
         </tr>    
