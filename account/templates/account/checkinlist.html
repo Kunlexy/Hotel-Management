@@ -1,4 +1,5 @@
 {% extends "home/index.html" %}
+{% load static %}
 
 
 	{% block body %}
@@ -13,34 +14,45 @@
 	</ol>
 	<!--//banner-->
 
+
 	<!--/main-->
 	<section class="main-content-w3layouts-agileits">
 		<div class="container">
+			<form action="{% url 'account:search' %}" method="post">
+			
+				{% csrf_token %}
+				<h3>Search for a Customer</h3><br>
+	
+				<input type="text" id="occupant_name" name="name" required>
+				<button type="submit" class="btn btn-success"> Search</button> <br>
+				
+			</form><br>
 			<h3 class="tittle">List Of Checked In Customers</h3>
 			<div class="inner-sec">
 				<!--left-->
+			
 				
 				<div class="left-blog-info-w3layouts-agileits text-left">
 					<div class="row">
 						{% for check in checked %}
 						<div class="col-lg-4 card my-lg-4 my-md-1 my-0">
 							<a href="single.html">
-								<img src="images/7.jpg" class="card-img-top img-fluid" alt="">
+								<img src="{% static 'home/assets/images/7.jpg' %}" class="card-img-top img-fluid" alt="">
 							</a>
 							<table border="3px" style="margin: 10px;">
 								<th>Customer Details</th>
 								<tr>
-									<td>Occupant Name: {{check.name}}</td></tr>
+									<td><b>Name: </b> {{check.name}}</td></tr>
 			
-									<td>Occupant Email: {{check.email}}</td></tr>
-									<td>Occupation: {{check.occupation}}</td></tr>
-									<td>Room Cheked: {{check.room}}</td></tr>
-									<td>Price: {{check.amount}}</td></tr>
-									<td>Start Date: {{check.start_date}}</td></tr>
-									<td>End Date: {{check.end_date}}</td></tr>
-									<td>Nights: {{check.night}}</td></tr>
-									<td>Staff on Duty: {{check.staff}}</td></tr>
-									<td>Time Checked In: {{check.time_checkedin}}</td>
+									<td><b> Occupant Email:</b>  {{check.email}}</td></tr>
+									<td><b> Occupation: </b> {{check.occupation}}</td></tr>
+									<td><b> Room Cheked: </b> {{check.room}}</td></tr>
+									<td><b> Price:</b>  {{check.amount}}</td></tr>
+									<td><b> Start Date:</b>  {{check.start_date}}</td></tr>
+									<td><b> End Date:</b>  {{check.end_date}}</td></tr>
+									<td><b> Nights:</b>  {{check.night}}</td></tr>
+									<td><b> Staff on Duty:</b>  {{check.staff}}</td></tr>
+									<td><b> Time Checked In:</b>  {{check.time_checkedin}}</td>
 									
 								</tr>
 							</table>

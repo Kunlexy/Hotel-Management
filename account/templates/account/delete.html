@@ -1,0 +1,16 @@
+{% extends "home/index.html" %}
+{% block body %}
+<div class="container" style="margin: 50px;">
+    <form action="" method="post">
+			
+        {% csrf_token %}
+        <h2>Delete a Profile</h2><br>
+
+            <input type="text" id="occupant_name" name="name" required>
+            <button type="submit" class="btn btn-success"> Delete </button> <br>
+            
+    </form>
+</div>
+
+
+{% endblock body%}

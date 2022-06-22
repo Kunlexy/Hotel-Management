@@ -82,6 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><span class="email"> </span><h6><a href="mailto:info@olakunlehotels.com">info@olakunlehotels.com</a></h6></li>
 					{% if user.is_authenticated %}
 						<li><a href="{% url 'account:checkedview' %}" data-hover="Customer Records">Customer Records</a></li>
+						
+						<li><a href="{% url 'account:checkinview' %}" data-hover="Checkin Customers">Checkin Customers</a></li>
+						
 						<li><a href="{% url 'account:logoutview' %}" data-hover="Logout">Logout</a></li>
 
 						{% else %}	
@@ -120,7 +123,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		            <nav class="cl-effect-16" id="cl-effect-16">
 		              <ul class="nav navbar-nav">
 						{% if user.is_authenticated %}
-						<li><a href="{% url 'account:checkinview' %}" data-hover="Checkin Customers">Checkin Customers</a></li>
+						<li><a href="{% url 'account:search' %}" data-hover="Search Records">Search Records</a></li>
+						<li><a href="{% url 'account:update' %}" data-hover="Update Customer Profile">Update Customer Profile</a></li>
+						<li><a href="{% url 'account:deleteview' %}" data-hover="Delete Record"> Delete Record </a></li> 
 						<li><a class="active" href="{% url 'home:homeview' %}" data-hover="Home">Home</a></li>
 						<li><a href="{% url 'home:aboutview' %}" data-hover="About">About</a></li>
 						<li><a href="{% url 'home:contactview' %}" data-hover="Contact">Contact</a></li>

@@ -1,0 +1,48 @@
+{% extends "home/index.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container" style="margin: 40px;">
+		<form action="" method="post">
+			
+			{% csrf_token %}
+			<h2>Search for a Customer</h2><br>
+			{% if name == None %}
+			<form action="{% url 'account:search' %}" method="post">
+	
+				<input type="text" id="occupant_name" name="name" required>
+				<button type="submit" class="btn btn-success"> Search</button> <br>
+				
+			</form><br>
+			<b>Customer does not exist try again</b><br>
+		    {% else %}
+				<input type="text" id="occupant_name" name="name" required>
+				<button type="submit" class="btn btn-success"> Search</button> <br>
+				<table border="2">
+					<tr>               
+						<td><b>Occupant Name: </b> {{name.name}}</td></tr>
+						<td><b>	Room: </b> {{name.room}}</td></tr>
+						<td><b>Amount Paid: </b> {{name.amount}}</td></tr>
+						<td><b>Occupant Email: </b> {{name.email}}</td></tr>
+						<td><b>Night: </b> {{name.night}}</td></tr>
+						<td><b>Start Date: </b> {{name.start_date}}</td></tr>
+						<td><b>End Date: </b> {{name.end_date}}</td></tr>
+						<td><b>Staff on Duty: </b> {{name.staff}}</td></tr>
+						<td><b>Time Checkedin: </b> {{name.time_checkedin}}</td>
+					</tr>
+				</table>
+			{% endif %}
+		</form>
+		
+</div>
+</body>
+</html>
+
+{% endblock body %}

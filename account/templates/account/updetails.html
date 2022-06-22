@@ -1,0 +1,67 @@
+{% extends "home/index.html" %}
+{% load crispy_forms_tags %}
+{% block body %}
+    
+<div class="container" style="margin: 50px;">
+    <table border="3">
+        <tr>
+            {% if name == None %}
+                <p> Customer does not exist click link below to try again</p> <br>
+                <p><a href="{% url 'account:update' %}"> Click here to update </a></p>
+                <div class="container" style="margin: 40px;">
+            {% else %}    
+            <form action="{% url 'account:updetailsview' %}" method="post">
+                {{crispy}}
+                {% csrf_token  %}
+                
+                <div>
+                    <th>Update Customer Profile</th></tr>
+                    <td><label title="room"> Room Number: <span> {{name.room}}</span> </label>
+                    <select id="room" name="room" >
+                        <option value="Room1"> Room 1 </option>
+                        <option value="Room 2"> Room 2</option>
+                        <option value="Room 3"> Room 3</option>
+                        <option value="Room 4"> Room 4</option>
+                        <option value="Room 5"> Room 5</option>
+                    </select></td></tr>
+                    <td><label title="amount"> Price: <span>{{name.amount}}</span></label>
+                    <select id="amount" name="amount">
+                        <option value="₦5000"> Room 1 = ₦5000</option>
+                        <option value="₦7000"> Room 2 = ₦7000 </option>
+                        <option value="₦7000"> Room 3 = ₦7000</option>
+                        <option value="₦5000"> Room 4 = ₦5000</option>
+                        <option value="₦5000"> Room 5 = ₦5000</option>
+                    </select></td></tr>
+                </div>
+                <div>
+                    <td><label title="name"> Occupant Name: </label>
+                    <input type="text" id="occupant_name" name="name" value="{{name.name}}" required></td></tr>
+                    <td><label title="email"> Occupant Email: </label>
+                    <input type="email" id="email" name="email" value= "{{name.email}}" required> </td></tr>
+                </div>
+                <div>
+                    <td><label title="occupation"> Occupant Occupation: </label>
+                    <input type="text" id="occupation" name="occupation" value="{{name.occupation}}" required></td></tr>
+                    <td><label title="night"> Number of Nights: </label>
+                    <input type="number" id="night" name="night" value="{{name.night}}" required></td></tr>
+                </div>
+                <div>
+                    <td><label title="start_date"> Start Date: </label>
+                    <input type="date" id="start_date" name="start_date" value="{{name.start_date}}" required></td></tr>
+                    <td><label title="end"> End Date: </label>
+                    <input type="date" id="end_date" name="end_date" value="{{name.end_date}}" required></td></tr>
+                    <input type="hidden" name ="ID" value="{{name.id}}" required></td></tr>
+
+                </div>
+                <div>
+                    <td><button type="submit" class="btn btn-success"> Update </button></td></tr>
+                </div>
+            </form>
+            {% endif %}
+        </tr>    
+    </table>
+
+
+</div>
+
+{% endblock body %}
